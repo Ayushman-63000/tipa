@@ -1,5 +1,5 @@
-import { motion } from 'framer-motion';
-import { Check, X, ArrowRight } from 'lucide-react';
+import { motion, useReducedMotion } from 'framer-motion';
+import { Check, X, Film, PackageCheck, UserRound, Recycle, Sprout, type LucideIcon } from 'lucide-react';
 
 const comparison = [
   { feature: "Barrier & sealability", conventional: true, tipa: true },
@@ -9,11 +9,43 @@ const comparison = [
   { feature: "End-of-life", conventional: false, tipa: true, tipaText: "Compostable", convText: "Landfill / Incineration" },
 ];
 
-const cycle = ["Film", "Package", "Consumer", "Compost", "Soil"];
+const storyStages = [
+  {
+    label: "Film",
+    caption: "Flexible compostable material.",
+    Icon: Film,
+  },
+  {
+    label: "Package",
+    caption: "Formed to protect products.",
+    Icon: PackageCheck,
+  },
+  {
+    label: "Consumer",
+    caption: "Used, emptied, and collected.",
+    Icon: UserRound,
+  },
+  {
+    label: "Compost",
+    caption: "Breaks down with organic waste.",
+    Icon: Recycle,
+  },
+  {
+    label: "Soil",
+    caption: "Returns nutrients to the earth.",
+    Icon: Sprout,
+  },
+] satisfies Array<{
+  label: string;
+  caption: string;
+  Icon: LucideIcon;
+}>;
 
 export default function TechnologySection() {
+  const reduceMotion = useReducedMotion();
+
   return (
-    <section className="bg-cream py-24 lg:py-32" id="technology">
+    <section className="bg-off-white py-24 lg:pt-28 lg:pb-32" id="technology">
       <div className="container mx-auto px-6 md:px-12">
         <div className="max-w-4xl mx-auto text-center mb-20">
           <motion.h2 
@@ -29,27 +61,27 @@ export default function TechnologySection() {
 
         {/* Comparison Table */}
         <div className="max-w-4xl mx-auto mb-32">
-          <div className="bg-white rounded-3xl shadow-xl overflow-hidden border border-card-border">
-            <div className="grid grid-cols-3 border-b border-cream/50 bg-off-white/50">
+          <div className="bg-white rounded-lg shadow-[0_24px_70px_rgba(13,31,14,0.08)] overflow-hidden border border-forest/10">
+            <div className="grid grid-cols-3 border-b border-forest/10 bg-cream/60">
               <div className="p-6 md:p-8 flex items-center">
                 <span className="font-serif font-semibold text-forest text-lg">Performance</span>
               </div>
-              <div className="p-6 md:p-8 text-center border-l border-cream/50 flex flex-col justify-center items-center">
+              <div className="p-6 md:p-8 text-center border-l border-forest/10 flex flex-col justify-center items-center">
                 <span className="font-sans text-sm text-forest/50 uppercase tracking-wider font-semibold mb-1">Conventional</span>
                 <span className="font-serif text-xl text-forest/70">Plastic</span>
               </div>
-              <div className="p-6 md:p-8 text-center border-l border-cream/50 bg-fresh-accent/10 flex flex-col justify-center items-center">
+              <div className="p-6 md:p-8 text-center border-l border-forest/10 bg-fresh-accent/20 flex flex-col justify-center items-center">
                 <span className="font-sans text-sm text-mid-green uppercase tracking-wider font-bold mb-1">TIPA®</span>
                 <span className="font-serif text-xl text-forest">Compostable</span>
               </div>
             </div>
             
             {comparison.map((item, i) => (
-              <div key={i} className={`grid grid-cols-3 border-b border-cream/50 ${i === comparison.length - 1 ? 'border-b-0' : ''}`}>
+              <div key={i} className={`grid grid-cols-3 border-b border-forest/10 ${i === comparison.length - 1 ? 'border-b-0' : ''}`}>
                 <div className="p-6 md:p-8 flex items-center">
                   <span className="font-sans font-medium text-forest/90">{item.feature}</span>
                 </div>
-                <div className="p-6 md:p-8 text-center border-l border-cream/50 flex items-center justify-center">
+                <div className="p-6 md:p-8 text-center border-l border-forest/10 flex items-center justify-center">
                   {item.feature === "End-of-life" ? (
                     <span className="text-sm font-medium text-red-800/70">{item.convText}</span>
                   ) : item.conventional ? (
@@ -58,7 +90,7 @@ export default function TechnologySection() {
                     <X className="w-6 h-6 text-red-500/50 mx-auto" />
                   )}
                 </div>
-                <div className="p-6 md:p-8 text-center border-l border-cream/50 bg-fresh-accent/5 flex items-center justify-center">
+                <div className="p-6 md:p-8 text-center border-l border-forest/10 bg-fresh-accent/10 flex items-center justify-center">
                   {item.feature === "End-of-life" ? (
                     <span className="text-sm font-bold text-mid-green">{item.tipaText}</span>
                   ) : item.tipa ? (
@@ -72,40 +104,55 @@ export default function TechnologySection() {
           </div>
         </div>
 
-        {/* Cycle Diagram */}
-        <div className="max-w-5xl mx-auto text-center">
-          <h3 className="text-2xl font-serif text-forest mb-12">The Circular Packaging Cycle</h3>
-          
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-2 relative">
-            {/* Connecting Line (Desktop) */}
-            <div className="hidden md:block absolute top-1/2 left-10 right-10 h-0.5 bg-card-border -translate-y-1/2 z-0" />
-            
-            {cycle.map((step, i) => (
-              <div key={i} className="flex flex-col md:flex-row items-center gap-4 relative z-10 w-full md:w-auto">
+        {/* Cycle Story */}
+        <div className="mx-auto max-w-6xl text-center">
+          <motion.h3
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.6 }}
+            transition={{ duration: 0.45, ease: "easeOut" }}
+            className="mb-10 text-2xl font-serif text-forest"
+          >
+            The Circular Packaging Cycle
+          </motion.h3>
+
+          <div className="relative overflow-visible py-3 md:py-6">
+            <div className="absolute left-[10%] right-[10%] top-[4.7rem] hidden h-px bg-forest/10 md:block" />
+
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-5 md:gap-4 lg:gap-8">
+              {storyStages.map(({ label, caption, Icon }, index) => (
                 <motion.div
-                  initial={{ scale: 0.8, opacity: 0 }}
-                  whileInView={{ scale: 1, opacity: 1 }}
-                  viewport={{ once: true, amount: 0.8 }}
-                  transition={{ delay: i * 0.2, duration: 0.5, type: "spring" }}
-                  className={`w-32 h-32 md:w-40 md:h-40 rounded-full flex items-center justify-center border-2 border-forest/10 bg-cream shadow-lg
-                    ${i === cycle.length - 1 ? 'bg-mid-green text-cream border-mid-green' : 'text-forest'}`}
+                  key={label}
+                  initial={{ opacity: 0, y: 18 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.35 }}
+                  transition={{ delay: index * 0.08, duration: 0.45, ease: "easeOut" }}
+                  className="group relative flex flex-col items-center"
                 >
-                  <span className="font-serif text-lg font-medium">{step}</span>
-                </motion.div>
-                
-                {i < cycle.length - 1 && (
-                  <motion.div 
-                    initial={{ opacity: 0, x: -10 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.2 + 0.2, duration: 0.3 }}
-                    className="md:hidden text-mid-green my-2"
+                  <motion.button
+                    type="button"
+                    aria-label={`${label}. ${caption}`}
+                    whileHover={reduceMotion ? undefined : { y: -6 }}
+                    whileFocus={reduceMotion ? undefined : { y: -6 }}
+                    transition={{ duration: 0.22, ease: "easeOut" }}
+                    className="relative z-10 flex h-32 w-32 items-center justify-center rounded-full border border-forest/10 bg-[#F1F1EE] text-[#5B211B] shadow-[0_18px_44px_rgba(13,31,14,0.07)] outline-none transition-colors duration-300 hover:bg-[#F5F0E8] focus-visible:ring-2 focus-visible:ring-[#5B211B]/25 md:h-36 md:w-36"
                   >
-                    <ArrowRight className="w-6 h-6 rotate-90 md:rotate-0" />
-                  </motion.div>
-                )}
-              </div>
-            ))}
+                    <span className="absolute inset-3 rounded-full border border-white/70" />
+                    <span className="absolute flex items-center justify-center transition-all duration-300 group-hover:-translate-y-3 group-hover:scale-75 group-hover:opacity-0 group-focus-within:-translate-y-3 group-focus-within:scale-75 group-focus-within:opacity-0">
+                      <Icon className="h-14 w-14" strokeWidth={1.65} />
+                    </span>
+                    <span className="absolute inset-0 flex scale-95 flex-col items-center justify-center px-5 text-center opacity-0 transition-all duration-300 group-hover:scale-100 group-hover:opacity-100 group-focus-within:scale-100 group-focus-within:opacity-100">
+                      <span className="font-serif text-xl font-semibold leading-tight text-[#5B211B]">{label}</span>
+                      <span className="mt-2 max-w-[9rem] text-xs leading-snug text-forest/62">{caption}</span>
+                    </span>
+                  </motion.button>
+
+                  <div className="mt-5 flex items-center gap-2 text-[#5B211B] md:hidden">
+                    <span className="font-serif text-lg font-semibold">{label}</span>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

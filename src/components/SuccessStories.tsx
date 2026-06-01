@@ -24,15 +24,15 @@ const stories = [
 
 export default function SuccessStories() {
   return (
-    <section className="bg-white py-24 lg:py-40" id="stories">
+    <section className="bg-white py-24 lg:py-36" id="stories">
       <div className="container mx-auto px-6 md:px-12">
-        <div className="flex flex-col justify-between mb-20 overflow-hidden">
+        <div className="flex flex-col justify-between mb-16 overflow-hidden">
           <motion.h2 
             initial={{ y: "100%" }}
             whileInView={{ y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="text-5xl md:text-7xl lg:text-[7vw] font-serif text-forest leading-[0.85] tracking-tighter"
+            className="text-5xl md:text-7xl lg:text-[6.5vw] font-serif text-forest leading-[0.9] tracking-tight"
           >
             BRANDS SWITCHING <br/>
             TO <span className="italic text-mid-green font-light">COMPOSTABLE</span>
@@ -49,7 +49,7 @@ export default function SuccessStories() {
           </motion.div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
           {stories.map((story, i) => (
             <motion.div
               key={i}
@@ -57,7 +57,7 @@ export default function SuccessStories() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ delay: i * 0.1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="group bg-off-white rounded-3xl overflow-hidden border border-card-border hover:shadow-2xl hover:shadow-forest/5 transition-all duration-500 cursor-pointer flex flex-col"
+              className="group bg-white rounded-lg overflow-hidden border border-forest/10 hover:border-mid-green/25 hover:shadow-[0_24px_70px_rgba(13,31,14,0.1)] transition-all duration-500 cursor-pointer flex flex-col"
             >
               <div className="aspect-[4/3] overflow-hidden relative">
                 <img 
@@ -65,12 +65,10 @@ export default function SuccessStories() {
                   alt={story.brand} 
                   className="w-full h-full object-cover origin-center transition-transform duration-1000 ease-out group-hover:scale-110"
                 />
-                {/* Premium green filter overlay */}
-                <div className="absolute inset-0 bg-forest/30 mix-blend-multiply group-hover:bg-forest/10 transition-colors duration-500" />
-                <div className="absolute inset-0 bg-gradient-to-t from-forest/50 via-transparent to-transparent opacity-80 transition-opacity duration-500" />
+                <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-white/40 to-transparent" />
               </div>
-              <div className="p-8 md:p-10 flex flex-col flex-grow">
-                <span className="text-xs font-mono text-muted uppercase tracking-widest mb-4">
+              <div className="p-7 md:p-8 flex flex-col flex-grow">
+                <span className="text-xs font-mono text-mid-green uppercase tracking-widest mb-4">
                   {story.region}
                 </span>
                 <h3 className="text-3xl font-serif text-forest mb-4 tracking-tight">{story.brand}</h3>

@@ -26,9 +26,8 @@ const reasons = [
 
 export default function WhyChooseTipa() {
   return (
-    <section className="bg-forest py-24 lg:py-32 overflow-hidden relative">
-      {/* Background pattern */}
-      <div className="absolute inset-0 opacity-5 pointer-events-none" style={{ backgroundImage: 'radial-gradient(#F5F0E8 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+    <section className="bg-cream py-24 lg:py-32 overflow-hidden relative">
+      <div className="absolute inset-0 opacity-50 pointer-events-none" style={{ backgroundImage: 'linear-gradient(rgba(13,31,14,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(13,31,14,0.05) 1px, transparent 1px)', backgroundSize: '64px 64px' }} />
 
       <div className="container relative z-10 mx-auto px-6 md:px-12">
         <div className="text-center max-w-3xl mx-auto mb-20">
@@ -36,7 +35,7 @@ export default function WhyChooseTipa() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-serif text-cream mb-6"
+            className="text-4xl md:text-5xl font-serif text-forest mb-6"
           >
             Why partner with TIPA?
           </motion.h2>
@@ -50,17 +49,14 @@ export default function WhyChooseTipa() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ delay: i * 0.1, duration: 0.6 }}
-              className="group bg-white/5 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-fresh-accent/50 hover:bg-white/10 transition-all duration-300 relative overflow-hidden"
+              className="group bg-white p-8 rounded-lg border border-forest/10 hover:border-mid-green/25 hover:shadow-[0_24px_70px_rgba(13,31,14,0.1)] transition-all duration-300 relative overflow-hidden"
             >
-              {/* Subtle green glow on hover */}
-              <div className="absolute inset-0 bg-fresh-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-2xl rounded-full scale-150 transform -translate-y-1/2" />
-              
               <div className="relative z-10">
-                <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mb-6 text-fresh-accent group-hover:scale-110 transition-transform duration-300">
+                <div className="w-12 h-12 bg-fresh-accent/20 rounded-lg flex items-center justify-center mb-6 text-mid-green group-hover:scale-105 transition-transform duration-300">
                   <reason.icon className="w-6 h-6" strokeWidth={1.5} />
                 </div>
-                <h3 className="text-xl font-serif text-cream mb-3">{reason.title}</h3>
-                <p className="text-cream/70 leading-relaxed text-sm">
+                <h3 className="text-xl font-serif text-forest mb-3">{reason.title}</h3>
+                <p className="text-forest/70 leading-relaxed text-sm">
                   {reason.desc}
                 </p>
               </div>

@@ -32,9 +32,7 @@ export default function Navbar() {
       )}
     >
       <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
-        {/* Logo */}
         <a href="#" className="flex items-center gap-3 z-50 relative group">
-          {/* Sleek modern parallelogram logo tilted to the right */}
           <div className="w-6 h-6 bg-fresh-accent transform -skew-x-[20deg] group-hover:scale-110 transition-transform duration-300" />
           <span className={cn(
             'font-serif text-3xl font-bold tracking-tight transition-colors',
@@ -44,7 +42,6 @@ export default function Navbar() {
           </span>
         </a>
 
-        {/* Desktop Nav */}
         <nav className="hidden lg:flex items-center gap-8">
           {navLinks.map((link) => (
             <a
@@ -60,7 +57,6 @@ export default function Navbar() {
           ))}
         </nav>
 
-        {/* CTA & Mobile Toggle */}
         <div className="flex items-center gap-4 z-50 relative">
           <a
             href="#contact"
@@ -88,7 +84,6 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       <div
         className={cn(
           'fixed inset-0 bg-cream z-40 flex flex-col pt-32 px-6 transition-transform duration-300 lg:hidden',

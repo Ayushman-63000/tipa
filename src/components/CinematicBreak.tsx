@@ -10,8 +10,8 @@ export default function CinematicBreak() {
           alt="Leaves texture" 
           className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-forest/80 mix-blend-multiply" />
-        <div className="absolute inset-0 bg-gradient-to-b from-forest/50 via-transparent to-forest/50" />
+        <div className="absolute inset-0 bg-forest/40" />
+        <div className="absolute inset-0 bg-gradient-to-b from-forest/40 via-forest/10 to-forest/60" />
       </div>
 
       <div className="container relative z-10 mx-auto px-6 md:px-12 text-center max-w-5xl">
@@ -22,7 +22,7 @@ export default function CinematicBreak() {
           transition={{ duration: 1, ease: "easeOut" }}
         >
           <span className="block text-fresh-accent font-mono text-sm tracking-widest uppercase mb-8">
-            // TIPA circular packaging philosophy
+            Circular packaging philosophy
           </span>
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif text-cream leading-[1.2] italic font-light text-balance">
             "Packaging should protect what matters — without becoming permanent waste."

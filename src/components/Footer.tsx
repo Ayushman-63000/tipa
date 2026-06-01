@@ -70,7 +70,6 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Decorative Watermark */}
       <div className="absolute bottom-[-15%] left-1/2 -translate-x-1/2 text-[25vw] font-serif font-bold text-cream/[0.02] pointer-events-none select-none z-0 tracking-tighter w-full text-center">
         TIPA
       </div>

@@ -34,7 +34,6 @@ export default function Hero() {
 
   return (
     <section className="relative w-full h-[100vh] min-h-[800px] flex items-center justify-center overflow-hidden bg-forest">
-      {/* User provided WebM Background Video */}
       <div className="absolute inset-0 w-full h-full pointer-events-none">
         <video 
           autoPlay 
@@ -46,14 +45,12 @@ export default function Hero() {
           <source src="/banner-nov-25-s.webm" type="video/webm" />
         </video>
         
-        {/* Soft radial mask to keep focus on text while letting video shine */}
         <div className="absolute inset-0 bg-forest/30" />
         <div className="absolute inset-0 bg-gradient-to-b from-forest/60 via-transparent to-forest/90" />
       </div>
 
       <div className="container relative z-20 mx-auto px-4 md:px-8 h-full flex flex-col justify-between pt-32 pb-12">
         
-        {/* Top Info Bar */}
         <motion.div 
           initial="hidden"
           animate="show"
@@ -61,33 +58,29 @@ export default function Hero() {
           className="flex justify-between items-start w-full text-cream/90 mix-blend-overlay"
         >
           <span className="font-mono text-xs tracking-[0.2em] uppercase font-bold">
-            // TIPA Corp
+            TIPA Corp
           </span>
           <span className="font-mono text-xs tracking-[0.2em] uppercase max-w-xs text-right opacity-70">
-            A new standard for packaging
+            Compostable flexible packaging
           </span>
         </motion.div>
 
-        {/* Unique & Bold Typography Vibe */}
         <motion.div 
           className="flex flex-col items-center justify-center w-full mt-10 text-cream"
           variants={containerVariants}
           initial="hidden"
           animate="show"
         >
-          {/* Top Line */}
           <div className="overflow-visible mb-2">
             <motion.h1 variants={wordVariants} className="font-serif text-[8vw] md:text-[6vw] leading-[0.9] tracking-tight m-0 p-0 text-center drop-shadow-2xl">
               PACKAGING THAT
             </motion.h1>
           </div>
           
-          {/* Middle Line - Massive Italics */}
           <div className="overflow-visible mb-2 relative">
             <motion.h1 variants={wordVariants} className="font-serif text-[12vw] md:text-[10vw] leading-[0.8] tracking-tighter m-0 p-0 text-center italic font-light text-soft-gold drop-shadow-2xl pt-4 pb-6">
               performs like plastic
             </motion.h1>
-            {/* Decorative Element */}
             <motion.div 
               initial={{ scaleX: 0 }} 
               animate={{ scaleX: 1 }} 
@@ -96,7 +89,6 @@ export default function Hero() {
             />
           </div>
           
-          {/* Bottom Line */}
           <div className="overflow-visible mt-2 md:mt-6">
             <motion.h1 variants={wordVariants} className="font-serif text-[7vw] md:text-[5vw] leading-[0.9] tracking-tight m-0 p-0 text-center flex items-center justify-center gap-6 drop-shadow-2xl">
               AND RETURNS <span className="text-fresh-accent font-bold">&mdash;</span> TO NATURE.
@@ -104,7 +96,6 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* Bottom Bar with CTA */}
         <motion.div 
           initial="hidden"
           animate="show"
@@ -112,8 +103,8 @@ export default function Hero() {
           className="grid grid-cols-1 md:grid-cols-12 gap-8 items-end w-full mt-auto pb-4"
         >
           <div className="md:col-span-4 flex items-center gap-4 text-cream/70">
-            <div className="w-2 h-2 bg-fresh-accent rounded-full animate-pulse" />
-            <span className="text-[10px] md:text-xs uppercase tracking-[0.2em] font-semibold">Award-Winning Materials</span>
+            <div className="w-2 h-2 bg-fresh-accent rounded-full" />
+            <span className="text-[10px] md:text-xs uppercase tracking-[0.2em] font-semibold">Compostable materials</span>
           </div>
 
           <div className="md:col-span-8 flex flex-col sm:flex-row justify-end gap-6 items-center">

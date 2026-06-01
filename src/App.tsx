@@ -13,7 +13,6 @@ import WhyChooseTipa from './components/WhyChooseTipa';
 import CTASection from './components/CTASection';
 import Resources from './components/Resources';
 import Footer from './components/Footer';
-import CustomCursor from './components/CustomCursor';
 
 function App() {
   useEffect(() => {
@@ -41,7 +40,6 @@ function App() {
 
   return (
     <div className="min-h-screen font-sans bg-cream text-forest selection:bg-fresh-accent/30">
-      <CustomCursor />
       <Navbar />
       <main>
         <Hero />

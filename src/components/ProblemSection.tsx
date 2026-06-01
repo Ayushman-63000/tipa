@@ -56,9 +56,9 @@ export default function ProblemSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.6, delay: 0.2 + i * 0.1 }}
-              className="bg-white p-10 rounded-2xl border border-card-border hover:shadow-xl transition-shadow duration-300"
+              className="bg-white p-10 rounded-lg border border-forest/10 hover:shadow-[0_24px_70px_rgba(13,31,14,0.09)] transition-shadow duration-300"
             >
-              <div className="w-14 h-14 bg-cream rounded-full flex items-center justify-center mb-6">
+              <div className="w-14 h-14 bg-fresh-accent/20 rounded-lg flex items-center justify-center mb-6">
                 <card.icon className="w-6 h-6 text-mid-green" strokeWidth={1.5} />
               </div>
               <h3 className="text-xl font-serif font-semibold text-forest mb-3">{card.title}</h3>
