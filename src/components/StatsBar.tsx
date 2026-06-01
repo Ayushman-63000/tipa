@@ -4,12 +4,12 @@ import type { Variants } from 'framer-motion';
 
 const stats = [
   {
-    value: "180 days",
-    label: "Designed to break down in compost environments",
+    value: "3-6 mo",
+    label: "Disintegration windows referenced by home and industrial composting standards",
   },
   {
-    value: "6–12 mo",
-    label: "Compost cycle messaging",
+    value: "4 standards",
+    label: "ASTM D6400, ISO 17088, EN 13432, and TUV OK Compost Home",
   },
   {
     value: "Food + Fashion",
@@ -51,7 +51,7 @@ export default function StatsBar() {
         >
           {stats.map((stat, i) => (
             <motion.div key={i} variants={item} className="flex flex-col gap-3">
-              <div className="text-4xl md:text-5xl font-serif text-soft-gold tracking-tight">
+              <div className="text-4xl md:text-5xl font-serif text-soft-gold tracking-normal">
                 {stat.value}
               </div>
               <div className="text-cream/70 text-sm md:text-base leading-relaxed">
@@ -68,7 +68,7 @@ export default function StatsBar() {
           className="mt-16 pt-8 border-t border-cream/10 text-center lg:text-left"
         >
           <p className="text-cream/40 text-xs tracking-wide">
-            * Claims shown as website messaging; verify exact certification and market-specific claims before production.
+            Claims depend on product structure, certification, local composting access, and market-specific labeling requirements.
           </p>
         </motion.div>
       </div>

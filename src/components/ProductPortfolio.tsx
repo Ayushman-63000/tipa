@@ -8,6 +8,7 @@ type Product = {
   tag: string;
   desc: string;
   img: string;
+  alt: string;
 };
 
 const products: Product[] = [
@@ -15,37 +16,43 @@ const products: Product[] = [
     title: "TIPA CLEAR",
     tag: "Transparent Films",
     desc: "High clarity compostable films for fresh produce and apparel.",
-    img: "/assets/tipa/Tipa-FlyLow-5083-Gray-LR.jpg"
+    img: "/assets/tipa/TIPA_gray-s.png",
+    alt: "A roll of clear compostable TIPA film on a light studio background."
   },
   {
     title: "TIPA MET",
     tag: "High-Barrier",
     desc: "Metallized compostable laminates for snacks and coffee.",
-    img: "/assets/tipa/823-Paper-white-MET-megamenu-1.png"
+    img: "/assets/tipa/823-Paper-white-MET-megamenu-1.png",
+    alt: "Metallized compostable packaging reel for high-barrier applications."
   },
   {
     title: "TIPA PAPER",
     tag: "Paper-Based",
     desc: "Compostable paper packaging with barrier properties.",
-    img: "/assets/tipa/Sachets-for-web-1.png"
+    img: "/assets/tipa/Sachets-for-web-1.png",
+    alt: "Paper-based compostable sachet packaging."
   },
   {
     title: "TIPA COLOR",
     tag: "Printable",
     desc: "Vibrant, high-quality printable packaging films.",
-    img: "/assets/tipa/chips-gray.png"
+    img: "/assets/tipa/chips-gray.png",
+    alt: "Printed compostable snack packaging on a light background."
   },
   {
     title: "Labels",
     tag: "Accessories",
     desc: "Fruit and vegetable labels that break down in compost.",
-    img: "/assets/tipa/reel-labels-gray-web.png"
+    img: "/assets/tipa/labels-4-web-1-1.png",
+    alt: "Compostable produce labels arranged on a roll."
   },
   {
-    title: "Zippers",
-    tag: "Closures",
-    desc: "Resealable compostable closures for extended freshness.",
-    img: "/assets/tipa/Reels-of-Zippers_s-2.jpg"
+    title: "Roll stock",
+    tag: "Conversion-ready",
+    desc: "Compostable reels and roll stock for flexible packaging lines.",
+    img: "/assets/tipa/Tipa-FlyLow-5083-Gray-LR.jpg",
+    alt: "Transparent TIPA packaging film in use for apparel."
   }
 ];
 
@@ -75,7 +82,9 @@ function ProductCard({ product, index }: { product: Product, index: number }) {
         <motion.img
           style={{ y, scale: 1.06 }}
           src={product.img}
-          alt={product.title}
+          alt={product.alt}
+          loading={isFeatured ? "eager" : "lazy"}
+          decoding="async"
           className="absolute inset-0 h-[112%] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.09]"
         />
         <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-white/70 to-transparent" />
@@ -85,7 +94,7 @@ function ProductCard({ product, index }: { product: Product, index: number }) {
         <span className="mb-4 w-fit rounded-md border border-mid-green/20 bg-fresh-accent/20 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-mid-green">
           {product.tag}
         </span>
-        <h3 className={cn("font-serif leading-tight tracking-tight text-forest", isFeatured ? "text-4xl md:text-5xl" : "text-3xl")}>
+        <h3 className={cn("font-serif leading-tight tracking-normal text-forest", isFeatured ? "text-4xl md:text-5xl" : "text-3xl")}>
           {product.title}
         </h3>
         <p className="mt-4 flex-grow text-sm leading-relaxed text-forest/70 md:text-base">
@@ -95,7 +104,7 @@ function ProductCard({ product, index }: { product: Product, index: number }) {
           href="#contact"
           className="mt-8 inline-flex w-fit items-center gap-2 text-sm font-semibold uppercase tracking-[0.14em] text-mid-green transition-colors hover:text-forest focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fresh-accent focus-visible:ring-offset-4 focus-visible:ring-offset-white"
         >
-          View product
+          Request details
           <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
         </a>
       </div>
@@ -118,7 +127,7 @@ export default function ProductPortfolio() {
             <span className="mb-5 block font-mono text-xs font-semibold uppercase tracking-[0.24em] text-mid-green">
               Compostable portfolio
             </span>
-            <h2 className="text-4xl md:text-5xl lg:text-7xl font-serif text-forest leading-[0.95] tracking-tight text-balance">
+            <h2 className="text-4xl md:text-5xl lg:text-7xl font-serif text-forest leading-[0.95] tracking-normal text-balance">
               Materials with the clarity to be seen.
             </h2>
           </motion.div>
@@ -129,7 +138,7 @@ export default function ProductPortfolio() {
             transition={{ delay: 0.15, duration: 0.7 }}
             className="text-lg leading-relaxed text-forest/70 lg:col-span-4"
           >
-            Films, laminates, labels, zippers, pouches, reels, and custom applications presented with product detail first.
+            Films, laminates, labels, pouches, reels, and custom applications presented with product detail first.
           </motion.p>
         </div>
 

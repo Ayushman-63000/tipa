@@ -17,7 +17,7 @@ const segments: Segment[] = [
     title: "Fresh Produce",
     eyebrow: "Breathable films",
     benefit: "Micro-perforated compostable films designed to protect freshness while keeping the end-of-use path clear.",
-    img: "/assets/tipa/Compostable-Hippie-Asparagus-1x1-1-e1745388794726.png",
+    img: "/assets/tipa/Rogers-orchards-1920_s.jpg",
     chips: ["Freshness", "Clarity", "Retail-ready"],
   },
   {
@@ -31,21 +31,21 @@ const segments: Segment[] = [
     title: "Snacks",
     eyebrow: "High-barrier laminates",
     benefit: "Compostable structures built for crispness, seal strength, and shelf presence across snack formats.",
-    img: "/assets/tipa/Group-10.jpg",
+    img: "/assets/tipa/Forest-Gum-1-WIDE-1080-1.png",
     chips: ["Barrier", "Sealability", "Print quality"],
   },
   {
     title: "Dry Food",
     eyebrow: "Durable pouches",
     benefit: "Flexible packaging for grains, cereals, pasta, and pantry products that need dependable handling.",
-    img: "/assets/tipa/Group-11.jpg",
+    img: "/assets/tipa/all.jpg",
     chips: ["Durability", "Shelf-ready", "Machinery fit"],
   },
   {
     title: "Tea & Coffee",
     eyebrow: "Aroma protection",
     benefit: "Compostable high-barrier pouches that help preserve aroma, flavor, and shelf presence.",
-    img: "/assets/tipa/Group-4.jpg",
+    img: "/assets/tipa/Sachets-for-web-1.png",
     chips: ["Aroma", "Barrier", "Shelf finish"],
   },
   {
@@ -107,7 +107,7 @@ export default function SegmentSelector() {
             <span className="block text-mid-green font-mono text-xs font-semibold uppercase tracking-[0.24em] mb-5">
               Industry fit
             </span>
-            <h2 className="text-4xl md:text-6xl lg:text-7xl font-serif text-forest leading-[0.95] tracking-tight text-balance">
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-serif text-forest leading-[0.95] tracking-normal text-balance">
               Engineered for the way your product moves.
             </h2>
           </motion.div>
@@ -144,7 +144,7 @@ export default function SegmentSelector() {
                 type="button"
                 role="tab"
                 aria-selected={isActive}
-                aria-controls={`segment-panel-${index}`}
+                aria-controls="segment-panel"
                 tabIndex={isActive ? 0 : -1}
                 onClick={() => selectTab(index)}
                 className={cn(
@@ -166,7 +166,7 @@ export default function SegmentSelector() {
         </div>
 
         <div
-          id={`segment-panel-${activeIndex}`}
+          id="segment-panel"
           role="tabpanel"
           aria-labelledby={`segment-tab-${activeIndex}`}
           tabIndex={0}
@@ -186,6 +186,8 @@ export default function SegmentSelector() {
                   <motion.img
                     src={activeSegment.img}
                     alt={activeSegment.title}
+                    loading="lazy"
+                    decoding="async"
                     initial={{ scale: 1.04 }}
                     animate={{ scale: 1 }}
                     transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
@@ -197,7 +199,7 @@ export default function SegmentSelector() {
                     <span className="mb-3 inline-flex rounded-md border border-white/40 bg-white/80 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-mid-green backdrop-blur-md">
                       {activeSegment.eyebrow}
                     </span>
-                    <h3 className="max-w-2xl text-4xl md:text-6xl font-serif leading-[0.98] tracking-tight text-cream">
+                    <h3 className="max-w-2xl text-4xl md:text-6xl font-serif leading-[0.98] tracking-normal text-cream">
                       {activeSegment.title}
                     </h3>
                   </div>
@@ -235,7 +237,7 @@ export default function SegmentSelector() {
                     href="#contact"
                     className="group mt-10 inline-flex w-fit items-center gap-3 text-sm font-semibold uppercase tracking-[0.16em] text-mid-green transition-colors hover:text-forest focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fresh-accent focus-visible:ring-offset-4 focus-visible:ring-offset-white"
                   >
-                    Explore segment
+                    Discuss segment
                     <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                   </a>
                 </div>

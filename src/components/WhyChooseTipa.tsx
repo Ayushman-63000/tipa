@@ -5,17 +5,17 @@ const reasons = [
   {
     icon: Leaf,
     title: "Certified Compostable",
-    desc: "Fully certified by globally recognized compost standards."
+    desc: "Messaging is grounded in recognized compostability standards and market-specific certification."
   },
   {
     icon: Recycle,
     title: "Supply-Chain Compatible",
-    desc: "Runs seamlessly on conventional plastic packaging machinery."
+    desc: "Designed to run on standard flexible-packaging machinery without unusual line changes."
   },
   {
     icon: Shield,
     title: "High Performance",
-    desc: "High barrier, high clarity, and strong sealing capabilities."
+    desc: "Built around barrier, clarity, seal strength, shelf presence, and product protection."
   },
   {
     icon: Users,

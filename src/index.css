@@ -3,17 +3,47 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    scroll-padding-top: 96px;
+  }
+
   body {
     @apply bg-cream text-forest font-sans antialiased;
+    line-height: 1.5;
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-serif;
+  }
+
+  a, button, input, select, textarea {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fresh-accent focus-visible:ring-offset-4 focus-visible:ring-offset-cream;
   }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  .skip-link {
+    @apply fixed left-4 top-4 z-[100] -translate-y-24 rounded-lg bg-forest px-4 py-3 text-sm font-semibold text-cream shadow-xl transition-transform;
+  }
+
+  .skip-link:focus {
+    @apply translate-y-0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
   }
 }

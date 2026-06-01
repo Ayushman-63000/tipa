@@ -15,7 +15,7 @@ const cards = [
   {
     icon: Leaf,
     title: "Compostable end-of-use",
-    desc: "Breaks down into biomass, water, and CO2, leaving no microplastics."
+    desc: "Designed for certified composting environments, with claims tied to verified standards."
   }
 ];
 
@@ -43,7 +43,7 @@ export default function ProblemSection() {
             className="flex flex-col justify-center"
           >
             <p className="text-xl md:text-2xl text-forest/80 leading-relaxed font-sans text-balance">
-              Thin films and multilayer flexible packaging are difficult and often uneconomical to recycle. TIPA focuses on flexible packaging that protects products while creating a better end-of-use path.
+              Thin films and multilayer flexible packaging are difficult and often uneconomical to recycle. TIPA focuses on packaging that protects products while giving brands a clearer compostable end-of-use path.
             </p>
           </motion.div>
         </div>

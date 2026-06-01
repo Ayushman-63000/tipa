@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { MotionConfig, useReducedMotion } from 'framer-motion';
 import Lenis from 'lenis';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -15,10 +16,16 @@ import Resources from './components/Resources';
 import Footer from './components/Footer';
 
 function App() {
+  const shouldReduceMotion = useReducedMotion();
+
   useEffect(() => {
+    if (shouldReduceMotion) {
+      return;
+    }
+
     const lenis = new Lenis({
       duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // https://www.desmos.com/calculator/brs54l4xou
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: 'vertical',
       gestureOrientation: 'vertical',
       smoothWheel: true,
@@ -36,26 +43,29 @@ function App() {
     return () => {
       lenis.destroy();
     };
-  }, []);
+  }, [shouldReduceMotion]);
 
   return (
-    <div className="min-h-screen font-sans bg-cream text-forest selection:bg-fresh-accent/30">
-      <Navbar />
-      <main>
-        <Hero />
-        <StatsBar />
-        <ProblemSection />
-        <ProductPortfolio />
-        <SegmentSelector />
-        <TechnologySection />
-        <CinematicBreak />
-        <SuccessStories />
-        <WhyChooseTipa />
-        <CTASection />
-        <Resources />
-      </main>
-      <Footer />
-    </div>
+    <MotionConfig reducedMotion="user">
+      <div className="min-h-screen font-sans bg-cream text-forest selection:bg-fresh-accent/30">
+        <a href="#main-content" className="skip-link">Skip to main content</a>
+        <Navbar />
+        <main id="main-content">
+          <Hero />
+          <StatsBar />
+          <ProblemSection />
+          <ProductPortfolio />
+          <SegmentSelector />
+          <TechnologySection />
+          <CinematicBreak />
+          <SuccessStories />
+          <WhyChooseTipa />
+          <CTASection />
+          <Resources />
+        </main>
+        <Footer />
+      </div>
+    </MotionConfig>
   )
 }
 

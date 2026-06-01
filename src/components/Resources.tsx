@@ -5,22 +5,26 @@ const resources = [
   {
     tag: "Education",
     title: "What is sustainable packaging?",
-    desc: "A practical guide to evaluating materials, end-of-use claims, and packaging tradeoffs."
+    desc: "A practical guide to evaluating materials, end-of-use claims, and packaging tradeoffs.",
+    href: "https://tipa-corp.com/sustainable-packaging/"
   },
   {
     tag: "Comparison",
     title: "Biodegradable vs Compostable packaging",
-    desc: "A clear look at common end-of-life terms and what buyers should verify before making claims."
+    desc: "A clear look at common end-of-life terms and what buyers should verify before making claims.",
+    href: "https://tipa-corp.com/biodegradable-packaging/"
   },
   {
     tag: "Guide",
     title: "How to compost TIPA packaging",
-    desc: "Consumer and business guidance for handling compostable flexible packaging after use."
+    desc: "Consumer and business guidance for handling compostable flexible packaging after use.",
+    href: "https://tipa-corp.com/sustainability/"
   },
   {
     tag: "Technology",
     title: "Flexible packaging technology",
-    desc: "An overview of barrier, seal, clarity, and machinery considerations for compostable films."
+    desc: "An overview of barrier, seal, clarity, and machinery considerations for compostable films.",
+    href: "https://tipa-corp.com/technology/"
   }
 ];
 
@@ -43,7 +47,7 @@ export default function Resources() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <a href="#" className="inline-flex items-center gap-2 text-forest hover:text-mid-green transition-colors font-semibold uppercase tracking-wide text-sm">
+            <a href="https://tipa-corp.com/blog/" className="inline-flex items-center gap-2 text-forest hover:text-mid-green transition-colors font-semibold uppercase tracking-wide text-sm">
               View all resources <ArrowRight className="w-4 h-4" />
             </a>
           </motion.div>
@@ -51,16 +55,17 @@ export default function Resources() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 border-t border-forest/10">
           {resources.map((item, i) => (
-            <motion.div
+            <motion.a
               key={i}
+              href={item.href}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ delay: i * 0.1, duration: 0.6 }}
-              className="group cursor-pointer flex flex-col border-b border-forest/10 py-8 transition-colors hover:bg-white/40 md:px-6"
+              className="group flex flex-col border-b border-forest/10 py-8 transition-colors hover:bg-white/40 md:px-6"
             >
               <div className="mb-4 flex items-center justify-between">
-                <span className="text-xs font-mono text-fresh-accent uppercase tracking-widest font-semibold">
+                <span className="text-xs font-mono text-mid-green uppercase tracking-widest font-semibold">
                   {item.tag}
                 </span>
                 <span className="font-mono text-xs text-forest/40">
@@ -76,7 +81,7 @@ export default function Resources() {
               <div className="inline-flex items-center gap-2 text-forest font-semibold tracking-wide uppercase text-sm mt-auto group-hover:text-mid-green transition-colors">
                 Read more <ArrowRight className="w-4 h-4 transform transition-transform group-hover:translate-x-1" />
               </div>
-            </motion.div>
+            </motion.a>
           ))}
         </div>
       </div>

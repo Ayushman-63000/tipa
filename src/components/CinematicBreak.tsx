@@ -6,12 +6,15 @@ export default function CinematicBreak() {
       {/* Background */}
       <div className="absolute inset-0 w-full h-full">
         <img 
-          src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?q=80&w=2000&auto=format&fit=crop" 
-          alt="Leaves texture" 
+          src="/assets/tipa/Forest-Gum-1-WIDE-1080-1.png" 
+          alt="" 
+          aria-hidden="true"
+          loading="lazy"
+          decoding="async"
           className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-forest/40" />
-        <div className="absolute inset-0 bg-gradient-to-b from-forest/40 via-forest/10 to-forest/60" />
+        <div className="absolute inset-0 bg-forest/45" />
+        <div className="absolute inset-0 bg-gradient-to-b from-forest/50 via-forest/15 to-forest/70" />
       </div>
 
       <div className="container relative z-10 mx-auto px-6 md:px-12 text-center max-w-5xl">
@@ -25,7 +28,7 @@ export default function CinematicBreak() {
             Circular packaging philosophy
           </span>
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif text-cream leading-[1.2] italic font-light text-balance">
-            "Packaging should protect what matters — without becoming permanent waste."
+            Packaging should protect what matters without becoming permanent waste.
           </h2>
         </motion.div>
       </div>
